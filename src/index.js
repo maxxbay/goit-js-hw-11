@@ -11,7 +11,10 @@ import scrollToTop from './js/scroll-to-top';
 
 scrollToTop();
 // =========================ВИКЛИК ПОДІЇ НА ФОРМУ=======================
-refs.form.addEventListener('submit', onFormSubmit);
+refs.form.addEventListener('submit', e => {
+  refs.gallery.innerHTML = '';
+  onFormSubmit(e);
+});
 
 let searchingData = '';
 let page = 1;
@@ -19,7 +22,6 @@ let perPage = 0;
 
 async function onFormSubmit(e) {
   e.preventDefault();
-
   searchingData = e.currentTarget.searchQuery.value;
   page = 1;
   if (searchingData.trim() === '') {
