@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import { refs } from './js/refs';
 import fetchPixabay from './js/fetch-pixabay';
-import cardTemplate from './template-card.hbs';
+import cardTemplate from './markup-card.hbs';
 // https://notiflix.github.io/notify
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
