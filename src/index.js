@@ -14,6 +14,7 @@ scrollToTop();
 refs.form.addEventListener('submit', e => {
   refs.gallery.innerHTML = '';
   onFormSubmit(e);
+  refs.loadMoreBtn.classList.add('is-hidden');
 });
 
 let searchingData = '';
@@ -31,12 +32,7 @@ async function onFormSubmit(e) {
   const response = await fetchPixabay(searchingData, page);
   perPage = response.hits.length;
 
-  if (response.totalHits <= perPage) {
-    addIsHidden();
-  } else {
-    removeIsHidden();
-  }
-
+  
   if (response.totalHits === 0) {
     clearGalleryHTML();
     refs.endcollectionText.classList.add('is-hidden');
@@ -71,7 +67,7 @@ async function loadMore() {
       Notify.failure(
         "We're sorry, but you've reached the end of search results."
       );
-      addiSHidden();
+      addIsHidden();
     }
     refs.loadMoreBtn.disabled = false;
   } catch (error) {
@@ -107,4 +103,6 @@ function renderImgCard(array) {
   const cardMarkup = array.map(item => cardTemplate(item)).join('');
   refs.gallery.insertAdjacentHTML('beforeend', cardMarkup);
   lightbox();
+  removeIsHidden();
+  // refs.form.reset();
 }
