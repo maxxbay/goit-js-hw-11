@@ -9,3 +9,4 @@ export default function scroll() {
   });
 }
 // https://developer.mozilla.org/ru/docs/Web/API/Element/getBoundingClientRect  --Опис--getBoundingClientRect
+// https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior == Поведінка скролу ==
