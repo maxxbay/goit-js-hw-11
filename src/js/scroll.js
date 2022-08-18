@@ -8,3 +8,4 @@ export default function scroll() {
     behavior: 'smooth',
   });
 }
+// https://developer.mozilla.org/ru/docs/Web/API/Element/getBoundingClientRect  --Опис--getBoundingClientRect
